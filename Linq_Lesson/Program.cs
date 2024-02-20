@@ -34,9 +34,13 @@ namespace Linq_Lesson
 
 
             //Calling to Functions
+
             //IEnumerable<Accountant> result = Task1.FirstTask(accountants, PLanguages);
 
-            IEnumerable<Accountant> result2 = Task2.SecondTask(accountants, PLanguages);
+            //IEnumerable<Accountant> result2 = Task2.SecondTask(accountants, PLanguages);
+
+            //IEnumerable<Accountant> result3 = (IEnumerable<Accountant>)Task3.ThirdTask(accountants, PLanguages);
+
 
 
 
