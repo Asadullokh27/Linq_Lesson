@@ -1,11 +1,5 @@
-﻿//List<int> numbers = new List<int>
-//{
-//    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-//};
-
-
-//var result = numbers;
-
+﻿using Linq_Lesson.Models;
+using Linq_Lesson.Tasks;
 
 namespace Linq_Lesson
 {
@@ -14,80 +8,52 @@ namespace Linq_Lesson
         static void Main(string[] args)
         {
 
-
-            // Join
-            var employees = new List<Employee>
+            var accountants = new List<Accountant>
                 {
-                    new Employee { Id = 1, EName = "John", DepartmentId = 1 },
-                    new Employee { Id = 2, EName = "Alice", DepartmentId = 1 },
-                    new Employee { Id = 3, EName = "Bob", DepartmentId = 2 },
-                    new Employee { Id = 4, EName = "Jack", DepartmentId = 1 },
-                    new Employee { Id = 5, EName = "Toms", DepartmentId = 2 },
-                    new Employee { Id = 6, EName = "Ron", DepartmentId = 1 },
-                    new Employee { Id = 7, EName = "Ram", DepartmentId = 2 },
-                    new Employee { Id = 8, EName = "Devid", DepartmentId = 2 },
+                    new Accountant { Id = 1, Accountantname = "Asadulloh", ProgramLanguageId = 2 },
+                    new Accountant { Id = 2, Accountantname = "Ibrohim", ProgramLanguageId = 0 },
+                    new Accountant { Id = 3, Accountantname = "OtabekWri", ProgramLanguageId = 1 },
+                    new Accountant { Id = 4, Accountantname = "Elyorbek", ProgramLanguageId = 0 },
+                    new Accountant { Id = 5, Accountantname = "Tohirjon", ProgramLanguageId = 3 },
+                    new Accountant { Id = 6, Accountantname = "Hayotillo", ProgramLanguageId = 2 },
+                    new Accountant { Id = 7, Accountantname = "Ozodbek", ProgramLanguageId = 6 },
+                    new Accountant { Id = 8, Accountantname = "Abdulloh", ProgramLanguageId = 4 },
+                    new Accountant { Id = 9, Accountantname = "Sardorbek", ProgramLanguageId = 0 },
+                    new Accountant { Id = 10, Accountantname = "Muhammad", ProgramLanguageId = 5 },
+                };      
+
+            var PLanguages = new List<ProgramLanguage>
+                {
+                    new ProgramLanguage { Id = 1, ProgramLanguageName = "JavaScript" },
+                    new ProgramLanguage { Id = 2, ProgramLanguageName = "C#" },
+                    new ProgramLanguage { Id = 3, ProgramLanguageName = "C" },
+                    new ProgramLanguage { Id = 4, ProgramLanguageName = "Python" },
+                    new ProgramLanguage { Id = 5, ProgramLanguageName = "Golang" },
+                    new ProgramLanguage { Id = 6, ProgramLanguageName = "C++" }
                 };
 
-            var departments = new List<Department>
-                {
-                    new Department { Id = 1, DName = "HR" },
-                    new Department { Id = 2, DName = "Programming" }
-                };
 
-
-
-
-
-
-            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
-
-            // factorial
-            var factorial = employees.GroupBy(x => x.DepartmentId == 1 ? "HR" : "Programming");
-
-            foreach (var factor in factorial)
-            {
-                Console.WriteLine($"Key: {factor.Key}, EmployeeName: {string.Join(", ", factor.Select(x => x.EName))}");
-            }
-
-
-            var result = employees.ToLookup(x => x.DepartmentId == 1 ? "HR" : "Programming");
-
-
-
-
-
-
-
-
-
-
-
-            Console.WriteLine("Join:");
-
+            //Calling to Functions
+            IEnumerable<Accountant> result = Task1.FirstTask(accountants, PLanguages);
 
 
 
 
         }
     }
-
-    class Employee
-    {
-        public int Id { get; set; }
-        public int DepartmentId { get; set; }
-        public string EName { get; set; }
-    }
-
-    class Department
-    {
-        public int Id { get; set; }
-        public string DName { get; set; }
-    }
-
-    class EmployeeDepartment
-    {
-        public string EmployeeName { get; set; }
-        public int DepartmentId { get; set; }
-        public string DepartmentName { get; set; }
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
